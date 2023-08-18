@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/translate" method="post">
+        <input type="text" name="textToTranslate" value="<%= locals?.old %>">
+        <select name="select_textToTranslate" id="">
+            <% paises.forEach(pais => { %>
+                <option value="<%= pais %>" <%= pais === locals?.select_textToTranslate ? 'selected' : '' %>><%= pais %></option>
+            <% }) %>
+        </select>
+        <select name="select_textTranslate" id="">
+            <% paises.forEach(pais => { %>
+                <option value="<%= pais %>" <%= pais === locals?.select_textTranslate ? 'selected' : '' %>><%= pais %></option>
+            <% }) %>
+        </select>
+        <button>Submit</button>
+    </form>
+    <% if (typeof traducido != "undefined" && traducido) { %>
+        <p><%= locals?.textoTraducido %></p>
+    <% }else if(!traducido){  %>
+        <p>Ingresa un texto a traducir</p>
+        <% } %>
+</body>
+</html>
