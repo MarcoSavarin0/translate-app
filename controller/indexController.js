@@ -90,7 +90,8 @@ module.exports = {
             const select_textToTranslate = '';
             const select_textTranslate = '';
             const languageNamesArray = await getLanguageNamesArray();
-            console.log(languageNamesArray[3]);
+     
+            console.log(languageNamesArray);
             res.render('index', { traducido: true, paises: languageNamesArray,select_textTranslate, select_textToTranslate  });
         } catch (error) {
             console.error('Error:', error);
